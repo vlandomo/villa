@@ -11,15 +11,46 @@
         background-color: #f0f2f5;
         color: #333;
       }
+      h3 {
+        font-size: 1.2rem;
+        color: #2c3e50;
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 12px;
+      }
+       ul {
+      list-style-type: disc; /* شكل النقطة */
+      padding-left: 1.5rem;  /* مسافة من اليسار */
+      margin-bottom: 1rem;
+    }
 
+    li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    ul li::marker {
+      color: #4ca1af; /* لون النقطة */
+    }
       header {
         background: linear-gradient(135deg, #2c3e50, #4ca1af);
         color: white;
-        padding: 25px 20px;
+        padding: 5px 20px;
         text-align: center;
       }
-
       .container {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      }
+      section {
         max-width: 1000px;
         margin: 30px auto;
         padding: 20px;
@@ -188,6 +219,96 @@
         </a>
       </div>
     </section>
+
+    <section>
+      <h2>More Info</h2>
+      <div>
+        <img src="media/Project.png">
+        <h3>Project Background</h3>
+        <p>
+          A <strong>musician</strong> wants to build a private villa for his
+          family, consisting of the father, his wife (the mother), and their
+          sons and daughters. He has chosen a plot of land
+          <strong>overlooking a distinguished location</strong>, located at the
+          intersection of two roads:
+        </p>
+        <ul>
+          <li>A 10-meter-wide main road</li>
+          <li>An 8-meter-wide side road</li>
+        </ul>
+
+        <h3>Project Objective</h3>
+        <p>The project aims to:</p>
+        <ul>
+          <li>
+            Train students to analyze space requirements based on
+            <strong>function and equipment</strong>
+          </li>
+          <li>
+            Teach students how to organize functional relationships of simple
+            spatial elements
+          </li>
+          <li>
+            Encourage the creation of
+            <strong>balanced functional layouts</strong> using diagrams
+          </li>
+        </ul>
+      </div>
+
+      <h3>The villa building is divided into main sections:</h3>
+      <ul>
+        <li>
+          <strong>Entrance Hall</strong>
+        </li>
+        <li>
+          <strong>Reception Area:</strong>
+          <ul>
+            <li>A reception hall that can be furnished in three areas:</li>
+            <ul>
+              <li>Guest lounge</li>
+              <li>Dining area</li>
+              <li>Living area</li>
+            </ul>
+            <li>Work space</li>
+            <li>Recording studio</li>
+            <li>Private bathroom</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Sleeping Area:</strong>
+          <ul>
+            <li>Master bedroom suite including:</li>
+            <ul>
+              <li>Sleeping area</li>
+              <li>Bathroom</li>
+              <li>Dressing area</li>
+            </ul>
+            <li>Two children's bedrooms (one for a boy, one for a girl)</li>
+            <li>Shared bathroom for the bedrooms</li>
+            <li>Private indoor living room for parents</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Services:</strong>
+          <ul>
+            <li>Well-sized kitchen with dining space</li>
+            <li>Maid's room with attached bathroom</li>
+            <li>Guest restroom</li>
+          </ul>
+        </li>
+        <li>
+          <strong>General Site:</strong>
+          <ul>
+            <li>Pedestrian walkways</li>
+            <li>Green areas</li>
+            <li>Swimming pool</li>
+            <li>Barbecue area</li>
+            <li>Parking for two cars</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section><h3>Made by Eng.Mohamed Saber 😊</h3></section>
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script> -->
     <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>

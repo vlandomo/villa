@@ -1,123 +1,351 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>مشروعي المعماري</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-
-    header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .container {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .project-title {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    .project-description {
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .videos {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .videos video {
-      width: 100%;
-      border-radius: 8px;
-    }
-
-    @media (max-width: 600px) {
-      .project-title {
-        font-size: 20px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Villa Musiqar</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Cairo", sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
       }
 
-      .project-description {
-        font-size: 16px;
+      header {
+        background: linear-gradient(135deg, #2c3e50, #4ca1af);
+        color: white;
+        padding: 25px 20px;
+        text-align: center;
       }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Villa Musiqar</h1>
-  </header>
 
-  <div class="container">
-    <div class="project-title">Project Info</div>
-    <div class="project-description">
-      <p>This project aims to design a modern architectural space that combines function and beauty.</p>
-    </div>
+      .container {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 20px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      }
 
-    <div class="gallery">
-      <img src="media/i1.png">
-      <img src="media/i2.png">
-      <img src="media/i3.png">
-      <img src="media/i4.png">
-      <img src="media/i5.png">
-      <img src="media/i6.png">
-      <img src="media/i7.png">
-      <img src="media/i8.png">
-      <img src="media/i9.png">
-      <img src="media/i10.png">
-      <img src="media/i11.png">
-      <img src="media/i12.png">
-      <img src="media/i13.png">
-      <img src="media/i14.png">
-      <img src="media/i15.png">
-      <img src="media/i16.png">
-      <img src="media/i17.png">
-      <img src="media/i18.png">
-      <!-- أضف المزيد من الصور حسب الحاجة -->
-    </div>
+      .main-viewer {
+        width: 100%;
+        max-height: 600px;
+        overflow-y: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        border-radius: 12px;
+      }
 
-    <div class="videos">
-      <video controls>
-        <source src="media/v1.mp4" type="video/mp4">
-        المتصفح لا يدعم تشغيل الفيديو.
-      </video>
-      <video controls>
-        <source src="media/v2.mp4" type="video/mp4">
-        المتصفح لا يدعم تشغيل الفيديو.
-      </video>
-      <div>
-        <h2>3D Model <a href="https://sketchfab.com/3d-models/villa3-78ff900c599d476b9429aacad8253b5d">Link</a></h2>
-        
+      .main-viewer img,
+      .main-viewer video {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 12px;
+      }
+
+      .thumbnails {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 10px 0;
+      }
+
+      .thumb {
+        width: 100px;
+        height: 70px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        cursor: pointer;
+        object-fit: cover;
+        border: 3px solid transparent;
+        transition: border 0.3s;
+      }
+
+      .thumb.active {
+        border: 3px solid #2c3e50;
+      }
+
+      video.thumb {
+        background-color: #000;
+      }
+
+      /* Scrollbar for thumbnails */
+      .thumbnails::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .thumbnails::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 4px;
+      }
+      .link_3d h2 {
+        font-size: 22px;
+        color: #2c3e50;
+        margin-top: 20px;
+      }
+
+      .link_3d a {
+        display: inline-block;
+        margin-top: 10px;
+        background-color: #2c3e50;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .link_3d a:hover {
+        background-color: #1a242f;
+      }
+      .main-viewer img,
+      .main-viewer video {
+        transition: opacity 0.4s ease;
+      }
+
+      .thumb {
+        transition: border 0.3s ease, transform 0.3s ease;
+      }
+      .thumb:hover {
+        transform: scale(1.05);
+      }
+
+      #fullscreenModal {
+        transition: opacity 0.4s ease;
+        opacity: 0;
+      }
+      #fullscreenModal.show {
+        opacity: 1;
+      }
+      .fade-out {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Villa Musiqar</h1>
+    </header>
+
+    <section class="container">
+      <div class="main-viewer" id="mainViewer">
+        <img src="media/i1.png" id="displayedMedia" />
       </div>
-    </div>
-  </div>
-</body>
+
+      <div class="thumbnails" id="thumbnails">
+        <!-- صور -->
+        <img src="media/i1.png" class="thumb active" data-type="image" />
+        <img src="media/i2.png" class="thumb" data-type="image" />
+        <img src="media/i3.png" class="thumb" data-type="image" />
+        <img src="media/i4.png" class="thumb" data-type="image" />
+        <img src="media/i5.png" class="thumb" data-type="image" />
+        <!-- فيديوهات -->
+        <video class="thumb" data-type="video" src="media/v1.mp4" muted></video>
+        <video class="thumb" data-type="video" src="media/v2.mp4" muted></video>
+      </div>
+      <!-- Modal للتكبير -->
+      <div
+        id="fullscreenModal"
+        style="
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.8);
+          justify-content: center;
+          align-items: center;
+          z-index: 9999;
+        "
+      >
+        <span
+          id="closeModal"
+          style="
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 32px;
+            color: white;
+            cursor: pointer;
+          "
+          >&times;</span
+        >
+        <div id="modalContent"></div>
+      </div>
+
+      <div class="link_3d">
+        <h2>3D Model</h2>
+        <a
+          href="https://sketchfab.com/3d-models/villa3-78ff900c599d476b9429aacad8253b5d"
+          target="_blank"
+        >
+          View on Sketchfab
+        </a>
+      </div>
+    </section>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script> -->
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+    <script>
+      const thumbnails = Array.from(document.querySelectorAll(".thumb"));
+      const mainViewer = document.getElementById("mainViewer");
+      const fullscreenModal = document.getElementById("fullscreenModal");
+      const modalContent = document.getElementById("modalContent");
+      const closeModal = document.getElementById("closeModal");
+      const thumbnailsContainer = document.getElementById("thumbnails");
+
+      let currentIndex = 0;
+
+      function scrollThumbIntoView(index) {
+        const thumb = thumbnails[index];
+        if (!thumb) return;
+        const offsetLeft = thumb.offsetLeft;
+        const thumbWidth = thumb.offsetWidth;
+        const containerWidth = thumbnailsContainer.clientWidth;
+
+        thumbnailsContainer.scrollTo({
+          left: offsetLeft - containerWidth / 2 + thumbWidth / 2,
+          behavior: "smooth",
+        });
+      }
+
+      function loadMedia(index) {
+        const thumb = thumbnails[index];
+        if (!thumb) return;
+
+        thumbnails.forEach((t) => t.classList.remove("active"));
+        thumb.classList.add("active");
+
+        mainViewer.firstElementChild?.classList.add("fade-out");
+
+        setTimeout(() => {
+          mainViewer.innerHTML = "";
+          const type = thumb.getAttribute("data-type");
+          let element;
+
+          if (type === "image") {
+            element = document.createElement("img");
+            element.src = thumb.src;
+            element.style.cursor = "zoom-in";
+            element.addEventListener("click", (e) => {
+              e.preventDefault();
+              openFullscreen(element.cloneNode());
+            });
+          } else if (type === "video") {
+            element = document.createElement("video");
+            element.src = thumb.src;
+            element.controls = true;
+            element.autoplay = true;
+            element.style.maxHeight = "100%";
+            element.style.cursor = "zoom-in";
+            element.addEventListener("click", (e) => {
+              e.preventDefault();
+              const clone = document.createElement("video");
+              clone.src = element.src;
+              clone.controls = true;
+              clone.autoplay = true;
+              clone.style.maxWidth = "90vw";
+              clone.style.maxHeight = "90vh";
+              openFullscreen(clone);
+            });
+          }
+
+          element.style.opacity = "0";
+          element.classList.add("fade-in");
+          mainViewer.appendChild(element);
+          setTimeout(() => {
+            element.style.opacity = "1";
+          }, 50);
+
+          scrollThumbIntoView(index);
+          currentIndex = index;
+        }, 200);
+      }
+
+      function openFullscreen(element) {
+        modalContent.innerHTML = "";
+        element.style.maxWidth = "90vw";
+        element.style.maxHeight = "90vh";
+        modalContent.appendChild(element);
+        fullscreenModal.classList.add("show");
+        fullscreenModal.style.display = "flex";
+        setTimeout(() => (fullscreenModal.style.opacity = "1"), 10);
+      }
+
+      closeModal.onclick = () => {
+        fullscreenModal.style.opacity = "0";
+        setTimeout(() => {
+          fullscreenModal.classList.remove("show");
+          fullscreenModal.style.display = "none";
+          modalContent.innerHTML = "";
+        }, 400);
+      };
+
+      // Swipe in main viewer
+      const hammerMain = new Hammer(mainViewer);
+      hammerMain.on("swipeleft", () => {
+        if (currentIndex < thumbnails.length - 1) {
+          loadMedia(currentIndex + 1);
+        }
+      });
+      hammerMain.on("swiperight", () => {
+        if (currentIndex > 0) {
+          loadMedia(currentIndex - 1);
+        }
+      });
+
+      // Swipe in fullscreen modal
+      const hammerModal = new Hammer(fullscreenModal);
+      hammerModal.on("swipeleft", () => {
+        if (currentIndex < thumbnails.length - 1) {
+          loadMedia(currentIndex + 1);
+          openFullscreenFromIndex(currentIndex);
+        }
+      });
+      hammerModal.on("swiperight", () => {
+        if (currentIndex > 0) {
+          loadMedia(currentIndex - 1);
+          openFullscreenFromIndex(currentIndex);
+        }
+      });
+
+      function openFullscreenFromIndex(index) {
+        const thumb = thumbnails[index];
+        const type = thumb.getAttribute("data-type");
+        let element;
+
+        if (type === "image") {
+          element = document.createElement("img");
+          element.src = thumb.src;
+        } else if (type === "video") {
+          element = document.createElement("video");
+          element.src = thumb.src;
+          element.controls = true;
+          element.autoplay = true;
+        }
+
+        element.style.maxWidth = "90vw";
+        element.style.maxHeight = "90vh";
+        openFullscreen(element);
+      }
+
+      thumbnails.forEach((thumb, index) => {
+        thumb.addEventListener("click", () => loadMedia(index));
+      });
+      // إغلاق عند الضغط على الخلفية فقط (مش المحتوى)
+      fullscreenModal.addEventListener("click", (e) => {
+        if (e.target === fullscreenModal) {
+          closeModal.onclick();
+        }
+      });
+
+      // أول تحميل
+      loadMedia(currentIndex);
+    </script>
+  </body>
 </html>
